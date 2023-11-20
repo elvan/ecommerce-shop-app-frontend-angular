@@ -7,3 +7,5 @@ export interface Product {
   productType: string;
   productBrand: string;
 }
+
+export class Product implements Product {}
