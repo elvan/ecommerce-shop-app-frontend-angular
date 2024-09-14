@@ -7,6 +7,7 @@ import {
   MatCardContent,
 } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 import { Product } from '../../../shared/models/product';
 
 @Component({
@@ -19,6 +20,7 @@ import { Product } from '../../../shared/models/product';
     MatIcon,
     CurrencyPipe,
     MatButton,
+    RouterLink,
   ],
   templateUrl: './product-item.component.html',
   styleUrl: './product-item.component.scss',
