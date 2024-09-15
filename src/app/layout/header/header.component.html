@@ -23,7 +23,9 @@
     </nav>
     <div class="flex gap-3 align-middle">
       <a
-        matBadge="5"
+        routerLink="/cart"
+        routerLinkActive="active"
+        matBadge="{{cartService.itemCount()}}"
         matBadgeSize="large"
         class="custom-badge mt-2 mr-2"
       >
