@@ -44,4 +44,6 @@ Thumbs.db
 ###
 
 package-lock.json
+
+src/environments/
 ssl/
