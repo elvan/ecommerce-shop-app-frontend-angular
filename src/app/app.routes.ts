@@ -1,12 +1,15 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
 import { emptyCartGuard } from './core/guards/empty-cart.guard';
+import { orderCompleteGuard } from './core/guards/order-complete.guard';
 import { LoginComponent } from './features/account/login/login.component';
 import { RegisterComponent } from './features/account/register/register.component';
 import { CartComponent } from './features/cart/cart.component';
 import { CheckoutSuccessComponent } from './features/checkout/checkout-success/checkout-success.component';
 import { CheckoutComponent } from './features/checkout/checkout.component';
 import { HomeComponent } from './features/home/home.component';
+import { OrderDetailedComponent } from './features/orders/order-detailed/order-detailed.component';
+import { OrderComponent } from './features/orders/order.component';
 import { ProductDetailsComponent } from './features/shop/product-details/product-details.component';
 import { ShopComponent } from './features/shop/shop.component';
 import { TestErrorComponent } from './features/test-error/test-error.component';
@@ -26,6 +29,12 @@ export const routes: Routes = [
   {
     path: 'checkout/success',
     component: CheckoutSuccessComponent,
+    canActivate: [authGuard, orderCompleteGuard],
+  },
+  { path: 'orders', component: OrderComponent, canActivate: [authGuard] },
+  {
+    path: 'orders/:id',
+    component: OrderDetailedComponent,
     canActivate: [authGuard],
   },
   { path: 'account/login', component: LoginComponent },
