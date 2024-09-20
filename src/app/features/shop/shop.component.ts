@@ -12,6 +12,7 @@ import {
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { ShopService } from '../../core/services/shop.service';
+import { EmptyStateComponent } from '../../shared/components/empty-state/empty-state.component';
 import { Pagination } from '../../shared/models/pagination';
 import { Product } from '../../shared/models/product';
 import { ShopParams } from '../../shared/models/shopParams';
@@ -32,6 +33,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
     MatMenuTrigger,
     MatPaginator,
     FormsModule,
+    EmptyStateComponent,
   ],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss',
@@ -55,6 +57,11 @@ export class ShopComponent {
   initialiseShop() {
     this.shopService.getTypes();
     this.shopService.getBrands();
+    this.getProducts();
+  }
+
+  resetFilters() {
+    this.shopParams = new ShopParams();
     this.getProducts();
   }
 
