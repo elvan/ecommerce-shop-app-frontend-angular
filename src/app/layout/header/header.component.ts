@@ -9,6 +9,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AccountService } from '../../core/services/account.service';
 import { BusyService } from '../../core/services/busy.service';
 import { CartService } from '../../core/services/cart.service';
+import { IsAdminDirective } from '../../shared/directives/is-admin.directive';
 
 @Component({
   selector: 'app-header',
@@ -24,6 +25,7 @@ import { CartService } from '../../core/services/cart.service';
     MatMenu,
     MatDivider,
     MatMenuItem,
+    IsAdminDirective,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
