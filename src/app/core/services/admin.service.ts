@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 import { Order } from '../../shared/models/order';
 import { OrderParams } from '../../shared/models/orderParams';
 import { Pagination } from '../../shared/models/pagination';
+import { Product } from '../../shared/models/product';
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +33,25 @@ export class AdminService {
     return this.http.post<Order>(
       this.baseUrl + 'admin/orders/refund/' + id,
       {}
+    );
+  }
+
+  createProduct(product: Product) {
+    return this.http.post<Product>(this.baseUrl + 'products', product);
+  }
+
+  updateProduct(product: Product) {
+    return this.http.put(this.baseUrl + 'products/' + product.id, product);
+  }
+
+  deleteProduct(id: number) {
+    return this.http.delete(this.baseUrl + 'products/' + id);
+  }
+
+  updateStock(id: number, newQuantity: number) {
+    return this.http.put(
+      this.baseUrl + 'products/update-stock/' + id,
+      newQuantity
     );
   }
 }
